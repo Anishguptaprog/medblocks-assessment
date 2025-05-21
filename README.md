@@ -1,46 +1,112 @@
-# Getting Started with Create React App
+# 🏥 Patient Registry App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A lightweight, fully client-side patient registration system with live multi-tab sync and SQL query support using a mock database engine.
 
-## Available Scripts
+Built using **React**, **TypeScript**, **TailwindCSS**, and **Pglite** with `BroadcastChannel` for real-time synchronization.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 📸 Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+| Feature                     | Description                                                                 |
+|----------------------------|-----------------------------------------------------------------------------|
+| **Patient Form**           | Register new patients and store their data locally                         |
+| **Patient List**           | View all registered patients with real-time updates                        |
+| **SQL Query Interface**    | Execute mock SQL queries (SELECT, INSERT, UPDATE) in the browser           |
+| **Tabbed Navigation**      | Switch easily between Register, List, and SQL Query views                  |
+| **Sync Across Tabs**       | Live updates across multiple tabs using `BroadcastChannel`                 |
+| **Persistent Storage**     | Patient data is saved in browser localStorage                              |
+| **Tailwind Styling**       | Clean, responsive, and modern UI using TailwindCSS                         |
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+---
 
-### `npm test`
+## 🚀 Getting Started
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 🧰 Prerequisites
 
-### `npm run build`
+- Node.js v16 or above
+- npm or yarn
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 📦 Installation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+git clone https://github.com/Anishguptaprog/medblocks-assessment.git
+cd patient-registration
+npm install
+```
+# ▶️ Run the App
+```bash
+npm start  # For Create React App
+```
+Open your browser at `http://localhost:3000`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# 🧭 Usage
+## 📋 Register Patients
 
-### `npm run eject`
+- Fill out the patient form
+- Submit to save data locally and sync to other open tabs
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## 📄 View Patient List
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Browse all registered patients
+- Updated automatically when new data is added in another tab
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## 💻 SQL Query Interface
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- Navigate to the SQL tab (if added in UI)
+- Run simple SQL queries like:
+```sql
+SELECT * FROM patients;
+SELECT * FROM patients WHERE name = 'John';
+```
+only supports basic SELECT, INSERT, and UPDATE statements.
 
-## Learn More
+# 📁 Project Structure
+```pgsql
+src/
+├── components/
+│   ├── PatientForm.tsx
+│   ├── PatientList.tsx
+│   └── SQLQueryInterface.tsx
+├── db/
+│   └── mockDatabase.ts
+├── types/
+│   ├── patient.ts
+│   └── query.ts
+├── App.tsx
+└── index.tsx
+```
+# 💻Tech Stack
+ - ReactJS with TypeScript
+  
+ - TailwindCSS for styling
+  
+ - localStorage for data persistence
+  
+ - BroadcastChannel API for multi-tab sync
+  
+ - Mock SQL query parser
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# Challenges Faced
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+| Problem                          | Solution                                                            |
+| -------------------------------- | ------------------------------------------------------------------- |
+| Live synchronization across tabs | Used `BroadcastChannel` for push updates                            |
+| SQL parsing in frontend          | Implemented a basic query interpreter with string parsing           |
+| Styling consistency              | Unified UI with Tailwind utility classes                            |
+| Handling async DB init           | Added loading state while database initializes                      |
+| Supporting real-time UI updates  | Triggered events via `window.dispatchEvent` for component refreshes |
+
+# Git Commit History
+```pgsql
+1. Initialize project using Create React App
+2. Define DB schema and mock implementation
+3. Create patient registration form component
+4. Implement patient list view with live updates
+5. Add SQL query interface for raw query execution
+6. Refactor App.tsx to support multi-tab navigation
+7. Apply consistent and modern Tailwind CSS styling
+```
+
+# 👨‍💻 Author
+Built by Anish Gupta
