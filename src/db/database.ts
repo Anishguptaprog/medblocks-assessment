@@ -8,7 +8,7 @@ interface Database {
   executeRawQuery: (sql: string) => any;
 }
 
-export const createMockDatabase = (): Database => {
+export const createDatabase = (): Database => {
   let patients: Patient[] = [];
   let nextId = 1;
 
