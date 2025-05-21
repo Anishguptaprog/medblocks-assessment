@@ -92,7 +92,7 @@ export const createDatabase = (): Database => {
               const fieldName = field.includes('.') ? field.split('.')[1] : field;
 
               return {
-                rows: patients.filter(p => (p as any)[fieldName] == cleanValue),
+                rows: patients.filter(p => (p as any)[fieldName] === cleanValue),
                 rowCount: patients.length
               };
             } catch {
