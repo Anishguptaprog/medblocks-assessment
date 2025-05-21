@@ -69,7 +69,7 @@ src/
 │   ├── PatientList.tsx
 │   └── SQLQueryInterface.tsx
 ├── db/
-│   └── mockDatabase.ts
+│   └── database.ts
 ├── types/
 │   ├── patient.ts
 │   └── query.ts
